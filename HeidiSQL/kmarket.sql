@@ -132,3 +132,6 @@ CREATE TABLE `km_product_review` (
 	`ip`	VARCHAR(100),
 	`rdate` datetime
 );
+
+
+
