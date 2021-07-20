@@ -13,7 +13,7 @@ CREATE TABLE `JBOARD_MEMBER` (
 	`uid` VARCHAR(20) PRIMARY KEY,
 	`pass` VARCHAR(255),
 	`name` VARCHAR(20),
-	`nick` VARCHAR(20) UNIQUE,tbl_buy
+	`nick` VARCHAR(20) UNIQUE,
 	`email` VARCHAR(20) UNIQUE,
 	`hp` CHAR(13) UNIQUE,
 	`grade` TINYINT DEFAULT 2,
@@ -37,7 +37,7 @@ CREATE TABLE `JBOARD_ARTICLE` (
 	`uid` VARCHAR(20),
 	`regip` VARCHAR(100),
 	`rdate` DATETIME
-);JBOARD_TERMS
+);
 
 # 파일 테이블
 CREATE TABLE `JBOARD_FILE` (
@@ -46,8 +46,8 @@ CREATE TABLE `JBOARD_FILE` (
 	`oriName` VARCHAR(255),
 	`newName` VARCHAR(255),
 	`download` INT DEFAULT 0,
-	`rdate` datetimeJBOARD_MEMBER
-);tbl_product
+	`rdate` datetime
+);
 
 
 
@@ -107,3 +107,27 @@ UNION
 UNION
 (SELECT * FROM `JBOARD_ARTICLE` WHERE `cate` ='faq' AND `parent`=0 ORDER BY `seq` DESC LIMIT 3);
 
+SELECT * FROM `MEMBER`;
+
+
+# aws안거치고 local로만 출력
+INSERT INTO `JBOARD_ARTICLE` SET 
+												 `title`=?,
+												 `content`=?,
+												 `file`=?,
+												 `uid`=?,
+												 `regip`=?,
+												 `rdate`=NOW();
+	
+INSERT INTO `JBOARD_ARTICLE` SET 
+												 `parent`=?,
+												 `content`=?,
+												 `uid`=?,
+												 `regip`=?,
+												 `rdate`=NOW();
+	
+INSERT INTO `JBOARD_FILE` SET 
+												 `parent`=?,
+												 `oriName`=?,
+												 `newName`=?,
+												 `rdate`=NOW();
