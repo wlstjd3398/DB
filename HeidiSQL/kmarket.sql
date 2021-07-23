@@ -219,3 +219,7 @@ SELECT * FROM `km_product`
 ORDER by `hit` DESC
 LIMIT 8;
 
+#할인율
+SELECT *, floor(price * (1 - discount/100)) AS `salePrice` FROM `km_product`
+ORDER BY `hit` DESC LIMIT 8;
+
