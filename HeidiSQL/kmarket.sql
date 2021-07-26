@@ -223,3 +223,7 @@ LIMIT 8;
 SELECT *, floor(price * (1 - discount/100)) AS `salePrice` FROM `km_product`
 ORDER BY `hit` DESC LIMIT 8;
 
+#shop/list 할인율
+SELECT *, FLOOR(price * (1- discount/100)) AS `salePrice` FROM `km_product` WHERE `cate1`=2 AND `cate2`=2;
+
+#main.xml 참고
