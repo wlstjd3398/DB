@@ -227,3 +227,18 @@ ORDER BY `hit` DESC LIMIT 8;
 SELECT *, FLOOR(price * (1- discount/100)) AS `salePrice` FROM `km_product` WHERE `cate1`=2 AND `cate2`=2;
 
 #main.xml 참고
+
+#장바구니 > 주문결제
+SELECT a.*,
+c.`cate1`, 
+c.`cate2`,
+c.`thumb1`,
+c.`name` AS pName,
+c.`price` AS pPrice,
+c.`discount` AS pDiscount,
+c.`point` AS pPoint,
+c.`delivery` AS pDelivery,
+FLOOR(c.`price` * (1 - c.`discount` / 100) + c.`delevery`) AS `pTotal`
+FROM `km_product_order` AS a JOIN `km_product_order_detail` AS b
+ON a.orderId = b.orderId
+JOIN `km_product` AS c ON b.`code`=c.`code` WHERE a.`orderId`=4;

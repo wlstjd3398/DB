@@ -130,4 +130,4 @@ INSERT INTO `JBOARD_FILE` SET
 												 `parent`=?,
 												 `oriName`=?,
 												 `newName`=?,
-												 `rdate`=NOW();
+												 `rdate`=NOW();information_schema
